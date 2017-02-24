@@ -28,6 +28,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <receiver android:name="com.getwings.receiver.AlarmReceiver" />
+
+        <service
+            android:name="com.getwings.service.AlarmService"
+            android:exported="false" />
+
         <activity
             android:name=".LocationActivity"
             android:label="@string/title_activity_location" >
