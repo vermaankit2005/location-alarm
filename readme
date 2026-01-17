@@ -1,4 +1,3 @@
-````markdown
 # Location Alarm
 
 Location-based utility app for Android that triggers alarms/notifications when entering or leaving configured geographic areas (geofences).
