@@ -1,94 +1,105 @@
-**Location Alarm**
+````markdown
+# Location Alarm
 
 Location-based utility app for Android that triggers alarms/notifications when entering or leaving configured geographic areas (geofences).
 
 ---
 
-**Table of contents**
+## Table of Contents
 
-* Features
-* Screenshots
-* Requirements
-* Build & install
-* Permissions
-* Usage
-* Notes & troubleshooting
-* Contributing
-* License
-* Contact
-
----
-
-**Features**
-
-* Create location-based alarms (geofences) with configurable radius.
-* Trigger audible/visual notifications when entering or exiting a geofence.
-* Persist saved locations and alarm settings.
-* Runs in background (service/foreground-notification) to monitor location.
-* Simple UI to add, edit and remove location alarms.
-
-(Adjust or expand features based on actual implementation in app/ if needed.)
+- [Features](#features)  
+- [Screenshots](#screenshots)  
+- [Requirements](#requirements)  
+- [Build & Install](#build--install)  
+- [Permissions](#permissions)  
+- [Usage](#usage)  
+- [Notes & Troubleshooting](#notes--troubleshooting)  
+- [Contributing](#contributing)  
+- [Maintainer / Contact](#maintainer--contact)  
+- [License](#license)  
 
 ---
 
-**Screenshots**
+## Features
+
+- Create location-based alarms (geofences) with configurable radius.  
+- Trigger audible/visual notifications when entering or exiting a geofence.  
+- Persist saved locations and alarm settings.  
+- Runs in background (service/foreground-notification) to monitor location.  
+- Simple UI to add, edit, and remove location alarms.  
+
+> *(Adjust or expand features based on actual implementation in app if needed.)*
+
+---
+
+## Screenshots
+
 Add screenshots to the `docs/` or `assets/` folder and reference them here:
 
-[screenshot-1](docs/screenshot1.png)
-[screenshot-2](docs/screenshot2.png)
+![Screenshot 1](docs/screenshot1.png)  
+![Screenshot 2](docs/screenshot2.png)  
 
 ---
 
-**Requirements**
+## Requirements
 
-* Android Studio (recommended)
-* Android SDK (compile & target according to project Gradle configuration)
-* Java (project is written in Java)
-* Gradle wrapper is included (use ./gradlew)
+- Android Studio (recommended)  
+- Android SDK (compile & target according to project Gradle configuration)  
+- Java (project is written in Java)  
+- Gradle wrapper included (use `./gradlew`)  
 
-Check `app/build.gradle` for exact compileSdkVersion / targetSdkVersion and update your SDK accordingly.
+Check `app/build.gradle` for exact `compileSdkVersion` / `targetSdkVersion` and update your SDK accordingly.
 
 ---
 
-**Build & install**
+## Build & Install
 
-1. Clone the repo
-   `git clone https://github.com/vermaankit2005/location-alarm.git`
-   `cd location-alarm`
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/vermaankit2005/location-alarm.git
+   cd location-alarm
+````
 
-2. Open the project in Android Studio
+2. **Open the project in Android Studio**
 
    * File → Open... → select the project folder
    * Allow Android Studio to sync Gradle and download dependencies
 
-   OR build from command line:
-   `./gradlew assembleDebug`
+   OR build from the command line:
 
-3. Install to a connected device or emulator:
-   `adb install -r app/build/outputs/apk/debug/app-debug.apk`
+   ```bash
+   ./gradlew assembleDebug
+   ```
+
+3. **Install to a connected device or emulator**
+
+   ```bash
+   adb install -r app/build/outputs/apk/debug/app-debug.apk
+   ```
 
 **Notes:**
 
 * Use a real device for reliable location/geofence testing (emulators can simulate location but behavior varies).
-* Ensure Google Play services (if used) are available on the device/emulator.
+* Ensure Google Play Services (if used) are available on the device/emulator.
 
 ---
 
-**Permissions**
+## Permissions
+
 Location-based apps typically require runtime and manifest permissions. Verify and grant the required permissions at runtime on Android 6.0+:
 
-* ACCESS_FINE_LOCATION (high accuracy location)
-* ACCESS_COARSE_LOCATION (optional)
-* ACCESS_BACKGROUND_LOCATION (Android 10+ if monitoring while app is backgrounded)
-* FOREGROUND_SERVICE (if using a foreground service to monitor location)
-* RECEIVE_BOOT_COMPLETED (if alarms/geofences should persist after reboot)
-* WAKE_LOCK (if keeping the CPU awake for critical work)
+* `ACCESS_FINE_LOCATION` (high accuracy location)
+* `ACCESS_COARSE_LOCATION` (optional)
+* `ACCESS_BACKGROUND_LOCATION` (Android 10+ if monitoring while app is backgrounded)
+* `FOREGROUND_SERVICE` (if using a foreground service to monitor location)
+* `RECEIVE_BOOT_COMPLETED` (if alarms/geofences should persist after reboot)
+* `WAKE_LOCK` (if keeping the CPU awake for critical work)
 
 Check `AndroidManifest.xml` and the runtime permission requests in the code; update them to match current platform requirements.
 
 ---
 
-**Usage**
+## Usage
 
 1. Launch the app on your device.
 2. Tap "Add location" (or equivalent UI) and select a location on the map or enter coordinates.
@@ -100,34 +111,15 @@ Check `AndroidManifest.xml` and the runtime permission requests in the code; upd
 
 ---
 
-**Notes & troubleshooting**
+## Notes & Troubleshooting
 
 * Android OS aggressively optimizes battery and may restrict background location updates; test on a device with battery optimizations disabled for the app.
-* On Android 10+ you must request background location permission separately; on Android 11+ follow new permission flows.
+* On Android 10+, request background location permission separately; on Android 11+ follow updated permission flows.
 * If geofences are not triggering:
 
   * Verify location is enabled and the device can obtain GPS fix.
   * Check app permissions.
   * Check device manufacturer-specific battery optimizations (Huawei, Xiaomi, OnePlus, etc.) and whitelist the app.
-  * Look at logcat for exceptions or error messages.
+  * Review `logcat` for exceptions or error messages.
 
 ---
-
-**Contributing**
-Contributions are welcome.
-
-Typical workflow:
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Implement your changes and add tests where appropriate
-4. Commit and push your branch
-5. Open a pull request and describe your changes
-
-Please open issues for bugs or feature requests before submitting large PRs so we can discuss the best approach.
-
----
-
-**Maintainer / Contact**
-Repository: [https://github.com/vermaankit2005/location-alarm](https://github.com/vermaankit2005/location-alarm)
-Author: vermaankit2005
